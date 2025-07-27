@@ -1,0 +1,27 @@
+{
+  "version": 4,
+  "configurePresets": [
+    {
+      "name": "win-ninja-debug",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/out/build/${presetName}",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_PREFIX_PATH": "$env{QT6_PREFIX}"
+      }
+    },
+    {
+      "name": "win-ninja-release",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/out/build/${presetName}",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_PREFIX_PATH": "$env{QT6_PREFIX}"
+      }
+    }
+  ],
+  "buildPresets": [
+    { "name": "build-win-debug", "configurePreset": "win-ninja-debug" },
+    { "name": "build-win-release", "configurePreset": "win-ninja-release" }
+  ]
+}
